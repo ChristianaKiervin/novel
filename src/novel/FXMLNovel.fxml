@@ -6,6 +6,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="novel.FXMLNovelController">
     <stylesheets>
@@ -14,7 +15,7 @@
     
     
     <top>
-        <Label fx:id="lblTitle" text="" />
+        <Label fx:id="lblNotif" text="" />
     </top>
     
     
@@ -27,11 +28,15 @@
     
     <bottom>
         
-        <HBox>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="0" bottom="0" left="230" right="0" />
+            </padding>
             <children>
-                <Button fx:id="btnLeft" text="Previous" onAction="#scroll" /> 
-                <Button fx:id="btnNew" text="Add New" onAction="#add" />
-                <Button fx:id="btnRight" text="Next" onAction="#scroll" /> 
+                <Button fx:id="btnLeft" text="&lt;" onAction="#scroll" /> 
+                <Button fx:id="btnNew" text="New Entry" onAction="#add" />
+                <Button fx:id="btnRight" text="&gt;" onAction="#scroll" /> 
+                <Button fx:id="save" text="save" onAction="#save" />
             </children>
         </HBox>
     </bottom>
