@@ -138,32 +138,26 @@ public class FXMLNovelController implements Initializable {
     private void save(ActionEvent event) throws IOException {
         
         String newEntry = txtBox.getText();
-        entryList.add(newEntry);
+        entryList.add(newEntry);  //use set instead to edit the current page? how to add new?
         
         //open output stream
         fileOut = new PrintWriter(new BufferedWriter(new FileWriter(poetryFile, true)));
         
-        fileOut.println(newEntry + "//");
-        
-        //re-write entire file to include new entry       ***Add random access in future   
-        
-        /*Iterator<String> it = entryList.iterator();
-       
-        while (it.hasNext()) {
-            fileOut.println("//");
-            fileOut.println(it.next());
-            
-        } */
-        
-        
-        
+        //print the new entry
+        fileOut.println(newEntry + "//");  //use an iterator to re-write the whole file instead to allow for editing functionality
+         
         //close stream and update user
         
         fileOut.close();
         
         lblNotif.setText("Your new entry has been saved");
         
+        /* To fix:
+            -Why does it add a blank page after new entries?
+            -How can I edit entries that exist without adding them to the end. -- do the one that sets the arraylist current index to the new entry
+        */
         
     }
     
 }
+
